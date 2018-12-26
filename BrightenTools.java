@@ -11,13 +11,28 @@ public class BrightenTools {
 	 * 
 	 * @param image
 	 */
-	public static Image imageBrighten(Image image) {
-		return imageBrighten(ImageTools.toBufferedImage(image));
+	public static Image imageBrighten(Image image, float rate) {
+		return imageBrighten(ImageTools.toBufferedImage(image), rate);
 	}
 
-	public static Image imageBrighten(BufferedImage bufferedImage) {
-		/*not complete to do the brighten tools
-		 * */
+	/*
+	 * */
+	public static Image imageBrighten(BufferedImage bufferedImage, float rate) {
+		/*
+		 * i is the row j is the line
+		 */
+		for (int i = 0; i < bufferedImage.getHeight(); i++) {
+			for (int j = 0; j < bufferedImage.getWidth(); j++) {
+				int rgb = bufferedImage.getRGB(i, j);
+				RGBIndex rgbIndex = new RGBIndex(rgb);
+				rgbIndex.red = IndexChange(rgbIndex.red , rate);
+				rgbIndex.green = IndexChange(rgbIndex.green , rate);
+				rgbIndex.blue = IndexChange(rgbIndex.blue , rate);
+				
+				/*wait to complete need to return the color to bufferedImage*/
+			}
+		}
+
 		return null;
 	}
 
@@ -46,7 +61,7 @@ public class BrightenTools {
 	 * 
 	 * @param rate
 	 */
-	int IndexChange(int index, float rate) {
+	public static int IndexChange(int index, float rate) {
 
 		int range = 255 - index;
 		index += range * rate;

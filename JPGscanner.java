@@ -25,7 +25,7 @@ public class JPGscanner {
 			rgbIndexArr.add(rgbRow);
 			for (int j = 0; j < width; j++) {
 				RGBIndex rgb = new RGBIndex(image.getRGB(j, i));
-				rgb = BrightenTools.indexBrighten(rgb, 0.5f);
+				System.out.println(rgb.rgb);
 				rgbRow.add(rgb);
 			}
 		}

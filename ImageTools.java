@@ -15,8 +15,13 @@ public class ImageTools {
 		return Integer.parseInt(String.format("%02x%02x%02x", redCode, greenCode, blueCode));
 	}
 
+	/*
+	 * override the RGBToHex with one @param
+	 * 
+	 * @param rgbIndex : the class about color
+	 */
 	public static int RGBToHex(RGBIndex rgbIndex) {
-		return RGBToHex(rgbIndex.getRed(), rgbIndex.getGreen(), rgbIndex.getBlue());
+		return RGBToHex(rgbIndex.red, rgbIndex.green, rgbIndex.blue);
 	}
 
 	/*
